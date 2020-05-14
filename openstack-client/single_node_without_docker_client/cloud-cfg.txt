@@ -1,0 +1,22 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+packages:
+ - python3-pip
+ - python3-dev
+ - build-essential
+ - rabbitmq-server
+
+byobu_default: system 
+
+runcmd:
+ - pip3 install celery
+ - pip3 install keras
+ - pip3 install tensorflow
+ - pip3 install amqp
+ - pip3 install flask
+
+ - git clone https://github.com/SNICScienceCloud/technical-training.git 
+ - celery -A workerA worker --detach --workdir=/technical-training/model-serving/single_server_without_docker/production_server --loglevel=debug --concurrency=1 -n wkr1@backend
+ - python3 /technical-training/model-serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100 & 

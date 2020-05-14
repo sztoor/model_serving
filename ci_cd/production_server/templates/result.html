@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test App</title>
+</head>
+<body>
+
+<h1>Accuracy is {{accuracy}}</h1>
+<table BORDER=1>
+<thead>
+<tr>
+<th>True</th><th>Predicted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+{% for val in range(7) %}
+
+<td>{{final_results['y'][val]}}</td><td>{{final_results['predicted'][val]}}</td> 
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+</body>
+</html>

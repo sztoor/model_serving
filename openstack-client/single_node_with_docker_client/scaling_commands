@@ -1,0 +1,42 @@
+Check the cluster status:
+
+# cd /technical-training/model-serving/single_server_with_docker/production_server
+# docker-compose ps
+
+            Name                          Command               State                                             Ports                                           
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+production_server_rabbit_1     docker-entrypoint.sh rabbi ...   Up      15671/tcp, 0.0.0.0:15672->15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp
+production_server_web_1        python ./app.py --host=0.0.0.0   Up      0.0.0.0:5100->5100/tcp                                                                    
+production_server_worker_1_1   celery -A workerA worker - ...   Up 
+
+Login to the production server and run the following command: 
+
+# docker-compose up --scale worker_1=3 -d
+
+It will add two more worker in the cluster. 
+
+Check the cluster status:
+
+# docker-compose ps
+
+            Name                          Command               State                                             Ports                                           
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+production_server_rabbit_1     docker-entrypoint.sh rabbi ...   Up      15671/tcp, 0.0.0.0:15672->15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp
+production_server_web_1        python ./app.py --host=0.0.0.0   Up      0.0.0.0:5100->5100/tcp                                                                    
+production_server_worker_1_1   celery -A workerA worker - ...   Up                                                                                                
+production_server_worker_1_2   celery -A workerA worker - ...   Up                                                                                                
+production_server_worker_1_3   celery -A workerA worker - ...   Up
+
+Now scale down the cluster: 
+
+# docker-compose up --scale worker_1=1 -d
+
+Check the cluster status:
+
+# docker-compose ps
+
+            Name                          Command               State                                             Ports
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+production_server_rabbit_1     docker-entrypoint.sh rabbi ...   Up      15671/tcp, 0.0.0.0:15672->15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp
+production_server_web_1        python ./app.py --host=0.0.0.0   Up      0.0.0.0:5100->5100/tcp
+production_server_worker_1_1   celery -A workerA worker - ...   Up

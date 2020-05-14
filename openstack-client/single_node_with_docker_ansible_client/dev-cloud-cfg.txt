@@ -1,0 +1,15 @@
+#cloud-config
+
+
+users:
+ - name: appuser
+   sudo: ALL=(ALL) NOPASSWD:ALL
+   home: /home/appuser
+   shell: /bin/bash
+   ssh_authorized_keys:
+     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCe5f+sDWOI1htYvtWm+f9RY8OC1rDB26f8kD+NeGHw/w6oqdBsv+EdKhWAOqdT7iCfrUACtutGxCyj09EazDV97rWj2+/SN13FdN0txd/SiqAqFe6vEV+EPCIh4BxgA0UD9nS8g2tDtn1kVPH3xg1tmwzZtAC7OnaFOxDs5ch4jEcT7A24GQbLwt5N6mfwOECLowqA/kj5d0SuSSvFsc1jw7U+AbRN2J0MswoqIfkCYU/1yvwnmC1OAHlMyTX7bYnX8qBW1t4PVu+2bo1mIvwIG8BtSSact7PbOTRDMA1ZogrYnfJqDC+A7BnI6T4yEC+UVxyDqIqHbSpEnnbOdIjx root@master
+
+byobu_default: system
+
+runcmd: 
+ - echo "adding docker repo"

@@ -1,0 +1,34 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5100:5100"
+    depends_on:
+      - rabbit
+    volumes:
+      - .:/app
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:management
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  worker_1:
+    build:
+      context: .
+    hostname: worker_1
+    entrypoint: celery
+    command: -A workerA worker --loglevel=debug
+    volumes:
+      - .:/app
+    links:
+      - rabbit
+    depends_on:
+      - rabbit

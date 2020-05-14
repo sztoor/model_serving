@@ -1,0 +1,25 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+
+packages: 
+ - apt-transport-https 
+ - ca-certificates 
+ - curl 
+ - software-properties-common
+
+byobu_default: system
+
+runcmd: 
+ - echo "adding docker repo"
+ - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ - add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+ - apt-get update -y
+ - apt-get install -y docker-ce
+ - echo "adding docker-compose"
+ - curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
+ - chmod +x /usr/local/bin/docker-compose
+ - git clone https://github.com/SNICScienceCloud/technical-training.git
+ - docker build -f /technical-training/model-serving/single_server_with_docker/production_server/Dockerfile . 
+ - docker-compose -f /technical-training/model-serving/single_server_with_docker/production_server/docker-compose.yml up -d 
