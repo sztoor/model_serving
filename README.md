@@ -19,7 +19,7 @@ Important:
 
 3. For all the tasks clone the repository:
 
-https://github.com/SNICScienceCloud/technical-training.git
+https://github.com/sztoor/model_serving.git
 
 The code for all the tasks is available in the "model-serving" directory. 
 
@@ -528,7 +528,7 @@ If the login successfull, exit from the development server.
 
 - For this step you need to be login as _ubuntu_ user on the client VM. 
 
-Now we will run the Ansible script available in the `technical-training/model-serving/openstack-client/single_node_with_docker_ansible_client` directory. 
+Now we will run the Ansible script available in the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. 
 
 ```console
 export ANSIBLE_HOST_KEY_CHECKING=False
@@ -742,14 +742,14 @@ To 192.168.1.21:/home/appuser/my_project
 For further details visit following link: 
 https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
 
-3. Goto `/technical-training/model-serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Now we will make changes in the model files, move them in the git repository, make a commit and than push these new model files in the running  production pipeline. 
+3. Goto `/model-serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Now we will make changes in the model files, move them in the git repository, make a commit and than push these new model files in the running  production pipeline. 
 
 - Run the script 
  
  ```console
    python3 neural_net.py 
    ```
-- Copy model files (`model.h5` and  `model.json`) from the development directory `technical-training/model-serving/ci_cd/development_server/` to the git repository `/home/appuser/project` on the development server.    
+- Copy model files (`model.h5` and  `model.json`) from the development directory `model-serving/ci_cd/development_server/` to the git repository `/home/appuser/project` on the development server.    
    
 ```console
    cp /model-serving/ci_cd/development_server/model*  /home/appuser/project/.
