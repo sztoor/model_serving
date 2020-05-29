@@ -1,4 +1,4 @@
-This lab will cover the following two topics:
+Following tasks will cover the following two topics:
 
 1. Dynamic contextualization and model serving in a scalable production environment 
 3. Reliable continuous integration and development process
@@ -88,7 +88,7 @@ Following is the structure of the code:
 
 Open files and try to understand the application's structure. 
 
-3. Goto the `model-serving/openstack-client/single_node_without_docker_client/` directory. This is the code that we will contextualize our production server. The code is based on the following two files:
+3. Goto the `model-serving/openstack-client/single_node_without_docker_client/` directory. This is the code that we will use to contextualize our production server. The code is based on the following two files:
 
 ```console
 - CloudInit configuration file  
@@ -109,7 +109,9 @@ Follow the instructions available on the following links:
 
 - Goto https://docs.openstack.org/install-guide/environment-packages-ubuntu.html , http://docs.openstack.org/cli-reference/common/cli_install_openstack_command_line_clients.html and download the client tools and API for OpenStack.
 
-- Download the Runtime Configuration (RC) file from the SSC site (Project->Compute->Access & Security->API Access->Download OpenStack RC File).
+- Download the Runtime Configuration (RC) file from the SSC site (Top left frame, Project->API Access->Download OpenStack RC File).
+
+- Set API access password. Goto https://cloud.snic.se/, Left frame, under _Services_ "Set your API password".  
 
 - Confirm that your RC file have following enviroment variables:
 
@@ -125,6 +127,7 @@ export OS_PROJECT_NAME="SNIC 2020/20-25"
 ```console 
 source <project_name>_openrc.sh
 ```
+_NOTE: You need to enter the API access passward._
 
 - The successful execution of the following commands will confirm that you have the correct packages available on your VM:
 
@@ -136,7 +139,7 @@ openstack server list
 openstack image list
 ```
 
-- For the API communication we need following extra packages:
+- For the API communication, we need following extra packages:
 
 ```console
 apt install python3-openstackclient
@@ -173,7 +176,7 @@ TERMINATE THE SERVER VM STARTED FOR TASK-1!
 
 ## Task-2: Single server deployment with Docker Containers
 
-In this task, we will repeat the same deployment process but with Docker containers. This time we  will create a flexible containerized deployment environment where each container has a defined role. 
+In this task, we will repeat the same deployment process but with Docker containers. This time we will create a flexible containerized deployment environment where each container has a defined role. 
 
 1. Now goto `model-serving/single_server_with_docker/production_server/` directory on the client VM. The directory contains the code that will run on your production server. Following is the structure of the code: 
 
@@ -194,9 +197,9 @@ In this task, we will repeat the same deployment process but with Docker contain
     -- docker-compose.yml
 ```
 
-Open different files and try to understand the application's structure. 
+Open files and try to understand the application's structure. 
 
-2. Goto the `model-serving/openstack-client/single_node_with_docker_client/` directory. This is the code that we will run to contextualize the production server. The code is based on the following two files:
+2. Goto the `model-serving/openstack-client/single_node_with_docker_client/` directory. The directory contains the code that we will use to contextualize the production server. The code is based on the following two files:
 
 ```console
 - CloudInit configuration file  
@@ -222,7 +225,7 @@ Welcome page `http://<PRODUCTION-SERVER-IP>:5100`. Predictions page `http://<PRO
 - Login to the production server. 
 
 ```console 
-ssh -i ubuntu@<PRODUCTION-SERVER-IP>
+ssh -i <PRIVATE KEY> ubuntu@<PRODUCTION-SERVER-IP>
 ```
 
 - Switch to the superuser mode.
@@ -287,7 +290,7 @@ production_server_worker_1_3   celery -A workerA worker - ...   Up
 
 Now we have 3 workers running in the system. 
 
-- Now scale down the cluster.
+- Scale down the cluster.
 
 ```console 
 docker-compose up --scale worker_1=1 -d
@@ -299,7 +302,7 @@ docker-compose up --scale worker_1=1 -d
 
 2. What are the outstanding issues that the deployment strategy of Task-2 cannot not address? What are the possible solutions to address those outstanding issues? 
 
-3. What is the difference between horizontal and vertical scalability? The strategy discussed in Task-2, is it horizontal or vertical scalability? 
+3. What is the difference between horizontal and vertical scalability? Is the strategy adopted in Task-2 follow horizontal or vertical scalability? 
 
 -----------------------------
 
@@ -309,24 +312,30 @@ TERMINATE THE SERVER VM STARTED FOR TASK-2!
 
 # Continuous Integration and Continuous Delivery (CI/CD)
 
-I 
+The next two tasks will cover scalable cluster deployments using Ansible playbooks and CI/CD environment using versioning system Git and an extension called Git Hooks.  
 
 ## Task-3: Deployment of multiple servers using Ansible
 
-For this task we need three VMs
+For this task we need a setup based on following three VMs:
 
 1. Client VM: This machine will serve as an Ansible host name and initiate the configuration process. 
 
-2. Production Server: The machine will host the dockerised version of the application discussed in previous tasks (1 and 2).
+2. Production Server: The machine will host the dockerised version of the application discussed in task-1.
 
 3. Development Server: The machine will host the development environment and push the new changes to the production server. 
 
 ### Steps to setup Ansible host and orchestration environment
 
+0. If you are not familiar with the Ansible, visit following URLs:
+
+- https://www.ansible.com/
+- https://www.ansible.com/blog/it-automation
+- https://www.ansible.com/overview/how-ansible-works
+
 1. Login to the Client machine
 
 ```console 
-ssh -i ubuntu@<PRODUCTION-SERVER-IP>
+ssh -i <PRIVATE KEY> ubuntu@<PRODUCTION-SERVER-IP>
 ```
 
 2. Goto `model-serving/ci_cd` directory. This directory contains the following two sub-directories 
@@ -353,9 +362,9 @@ ssh -i ubuntu@<PRODUCTION-SERVER-IP>
   
 ```
 
-Open different files and try to understand the application's structure. 
+Open files and try to understand the application's structure. 
 
-3. Goto the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. This is the code that we will run to contextualize our production server. The code is based on the following files:
+3. Goto the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. This is the code that we will be used to contextualize our production server. The code is based on the following files:
 
 ```console
 - CloudInit files 
@@ -368,13 +377,13 @@ Open different files and try to understand the application's structure.
   -- configuration.yml  
 ```
 
-The client code will start two VMs and uisng Ansible orchestration environment it will contextualize both of the VMs simultanously. 
+The client code will start two VMs and by uisng Ansible orchestration environment it will contextualize both of the VMs simultanously. 
 
 4. Installation and configuration of Ansible on the client machine.
 
 - First will generate a cluster SSH key.
 
-First check the username you are login as 
+Check the username you are login as 
 
 ```console
 whoami
@@ -424,15 +433,15 @@ The key's randomart image is:
 +-----------------+
 ```
 
-Now we have cluster ssh keys at the following location:
+The step will generate cluster ssh keys at the following location:
 
 1. Private key: `/home/ubuntu/cluster-keys/cluster-key`
 
 2. Public key: `/home/ubuntu/cluster-keys/cluster-key.pub`
 
-3. Now we start Production and Development servers. But first open `prod-cloud-cfg.txt` delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the section `ssh_authorized_keys:` 
+3. Ne we start Production and Development servers. But first open `prod-cloud-cfg.txt` delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the `prod-cloud-cfg.txt` file.  
 
-Repeat same step 3 with the `dev-cloud-cfg.txt`. Delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the section `ssh_authorized_keys:`
+Repeat same step 3 with the `dev-cloud-cfg.txt`. Delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the `prod-cloud-cfg.txt` file.
 
 4. Run the `start_instance.py` code.
 
@@ -505,9 +514,6 @@ dev_server ansible_connection=ssh ansible_user=appuser
 
 If you need to learn more about Ansible, here are some useful links: 
 
-Ansible official site 
-https://www.ansible.com/
-
 Easy installation instructions
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04
 
@@ -519,14 +525,14 @@ First switch back to user _ubuntu_
 ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<PRODUCTION-SERVER-IP>
 ```
 
-If the login is successfull, exit from the production server and repeat the step with development server 
+If the login is successfull, exit from the production server and repeat this step with development server 
 
 ```console
 ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<DEVELOPMENT-SERVER-IP>
 ```
 If the login successfull, exit from the development server. 
 
-- For this step you need to be login as _ubuntu_ user on the client VM. 
+- For this step you need to login as _ubuntu_ user on the client VM. 
 
 Now we will run the Ansible script available in the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. 
 
@@ -558,11 +564,11 @@ The Task-4 is the continuation of Task-3. Do NOT terminate your instances setup 
 
 ## Task-4: CI/CD using Git HOOKS 
 
-This 
+In this task, we will build a reliable execution pipeline using Git Hooks. The pipeline will allow continuous integration and delivery of new machine learning models in a production environment. 
 
-0. SSH key based communication between production and development servers 
+0. Enable SSH key based communication between production and development servers 
 
-- Login to development server 
+- Login to the development server 
     
   ```console
   ssh -i cluster-key appuser@<DEVELOPMENT-SERVER-IP>
@@ -584,7 +590,7 @@ _NOTE: This step will create two files, private key `/home/appuser/.ssh/id_rsa` 
 ssh -i cluster-key appuser@<PRODUCTION-SERVER-IP>
 ```
 
-- Open file `/home/appuser/.ssh/authorized_keys` and past the contents of the public key files. 
+- Open file `/home/appuser/.ssh/authorized_keys` and past the contents of the public key file in the `authorized_keys` file. 
 
 ```console
 nano /home/appuser/.ssh/authorized_keys
@@ -702,7 +708,7 @@ Output
 
 - Add files `model.h5` and  `model.json` in `/home/appuser/project/` directory. The files are available in `/model-serving/ci_cd/development_server/` directory. 
 
-- Goto `/home/appuser/project` directory
+- Goto the `/home/appuser/project` directory
     
 - Add files for the commit 
    
@@ -716,7 +722,7 @@ git add .
 git commit -m "new model" 
 ```
    
-- connect development server's git to production server's git. 
+- Connect development server's git to production server's git. 
 
 ```console
 git remote add production appuser@<PRODUCTIONS-SERVER-IP>:/home/appuser/my_project
@@ -739,10 +745,10 @@ To 192.168.1.21:/home/appuser/my_project
 * [new branch]      master -> master 
 ```
 
-For further details visit following link: 
+In case you want to learn more about Git Hooks, visit the following link: 
 https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
 
-3. Goto `/model-serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Now we will make changes in the model files, move them in the git repository, make a commit and than push these new model files in the running  production pipeline. 
+3. Goto `/model-serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Open the training script `neural_net.py`, make changes in the model, run the script, move them in the git repository, commit changes and then push new model files in the running production pipeline. 
 
 - Run the script 
  
