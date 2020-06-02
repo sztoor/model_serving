@@ -382,9 +382,9 @@ Open files and try to understand the application's structure.
 
 The client code will start two VMs and by uisng Ansible orchestration environment it will contextualize both of the VMs simultanously. 
 
-4. Installation and configuration of Ansible on the client machine.
+4. Install and configure Ansible on the client machine.
 
-- First will generate a cluster SSH key.
+- First generate a cluster SSH key.
 
 Check the username you are login as 
 
