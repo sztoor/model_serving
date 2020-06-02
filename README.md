@@ -9,19 +9,19 @@ Important:
 
 0. _It is expected that students have finished the prelab of the distributed e-infrastructures part._
 
-_NOTE: Please terminate VMs once you finish the task._ 
+1. Please terminate VMs once you finish the task. 
 
-1. The tasks and the configurations are designed for the Ubuntu 18.04 with medium VM flavour.  
+2. The tasks and the configurations are designed for the Ubuntu 18.04 with medium VM flavour.  
 
-2. We will use SNIC Science Cloud (SSC) for all the tasks. In case you want to learn more about SSC visit the website  http://cloud.snic.se
+3. We will use SNIC Science Cloud (SSC) for all the tasks. In case you want to learn more about SSC visit the website  http://cloud.snic.se
 
-3. We recommend you to create a VM in SSC and execute all the tasks on that virtual machine. You can run the tasks on your laptops but it may break your local working environment.
+4. We recommend you to create a VM in SSC and execute all the tasks on that virtual machine. You can run the tasks on your laptops but it may break your local working environment.
 
-4. For all the tasks clone the repository:
+5. For all the tasks, clone the repository:
 
 https://github.com/sztoor/model_serving.git
 
-The code for all the tasks is available in the "model-serving" directory. 
+The code for tasks is available in the "model-serving" directory. 
 
 ```
  - model-serving
@@ -41,7 +41,7 @@ Dynamic contextualization is a process of preparing a customized computing envir
 In this task, we will learn how the dynamic contextualization works using Cloudinit package. For this task, we need to use OpenStack APIs to start a VM and contextualize it at run time. The contextualization process will setup the following working environment: 
 
 
-1. Flask web application as a frontend server 
+1. Flask based web application as a frontend server 
 2. Celery and RabbitMQ server for backend server
 3. Model execution environment based on Keras and TensorFlow
 
@@ -52,7 +52,7 @@ In case you are not familiar with the above-mentioned packages please read the f
 3. Keras and TensorFlow -> https://www.tensorflow.org/guide/keras
 4. OpenStack -> https://www.openstack.org/
 
-The execution process will start when a client will send a prediction request from the front-end web server. The server will pass the request to the backend Celery environment where running workers in the setup will pick up the task, run the predictions by loading the available model, send back the results and finally frontend server will display the results.
+The process will start when a client will send a prediction request from the front-end web server. The server will pass the request to the backend Celery environment where running workers in the setup will pick up the task, run the predictions by loading the available model, send back the results and finally frontend server will display the results.
 
 ### Steps for the contextualization
 
@@ -162,7 +162,7 @@ The command will start a new server and initiate the contextualization process. 
 
 ## Questions
 
-1. Explain how the application works? Write one paragraph about application's framework. 
+1. Explain how the application works? Write a short paragraph about the framework. 
 
 2. What are the drawbacks of the contextualization strategy adopted in the task-1? Write at least four drawbacks.
 
