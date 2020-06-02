@@ -535,7 +535,7 @@ ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<DEVELOPMENT-SERVER-IP>
 ```
 If the login successfull, exit from the development server. 
 
-- For this step you need to login as _ubuntu_ user on the client VM. 
+- For this step, switch to _ubuntu_ user on the client VM. 
 
 Now we will run the Ansible script available in the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. 
 
@@ -547,9 +547,9 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook configuration.yml --private-key=/home/ubuntu/cluster-keys/cluster-key
 ```
 
-The process will take 10 to 15 minutes to complete. Once the process successfully completed you have both production and development servers ready. 
+The process will take 10 to 15 minutes to complete.  
 
-Attach floating IP address to the production server and access the same web page as we have in previous tasks.  
+Attach floating IP address to the production server and access the same predictions webpage as we did in previous tasks.  
 
 ## Questions
 
