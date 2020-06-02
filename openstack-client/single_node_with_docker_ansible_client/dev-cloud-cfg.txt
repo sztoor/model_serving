@@ -11,5 +11,3 @@ users:
 
 byobu_default: system
 
-runcmd: 
- - echo "adding docker repo"
