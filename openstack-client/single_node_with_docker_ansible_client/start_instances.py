@@ -10,7 +10,7 @@ from keystoneauth1 import session
 
 
 flavor = "ssc.medium" 
-private_net = "SNIC 2019/10-43 Internal IPv4 Network"
+private_net = "SNIC 2020/20-25 Internal IPv4 Network"
 floating_ip_pool_name = None
 floating_ip = None
 image_name = "380b438b-f5d6-4afa-9d5f-a0ee972d60bc"
@@ -58,8 +58,8 @@ else:
 secgroups = ['default']
 
 print ("Creating instances ... ")
-instance_prod = nova.servers.create(name="prod_server_with_docker_"+str(identifier), image=image, flavor=flavor, key_name='sztoor',userdata=userdata_prod, nics=nics,security_groups=secgroups)
-instance_dev = nova.servers.create(name="dev_server_"+str(identifier), image=image, flavor=flavor, key_name='sztoor',userdata=userdata_dev, nics=nics,security_groups=secgroups)
+instance_prod = nova.servers.create(name="prod_server_with_docker_"+str(identifier), image=image, flavor=flavor, key_name='<YOUR-KEY>',userdata=userdata_prod, nics=nics,security_groups=secgroups)
+instance_dev = nova.servers.create(name="dev_server_"+str(identifier), image=image, flavor=flavor, key_name='<YOUR-KEY>',userdata=userdata_dev, nics=nics,security_groups=secgroups)
 inst_status_prod = instance_prod.status
 inst_status_dev = instance_dev.status
 
