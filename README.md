@@ -1,4 +1,4 @@
-Following tasks will cover the following two topics:
+The assignment covers the following two topics:
 
 1. Dynamic contextualization and model serving in a scalable production environment 
 3. Reliable continuous integration and development process
