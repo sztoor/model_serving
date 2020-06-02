@@ -9,7 +9,7 @@ from keystoneauth1 import loading
 from keystoneauth1 import session
 
 flavor = "ssc.medium" 
-private_net = "SNIC 2019/10-43 Internal IPv4 Network"
+private_net = "SNIC 2020/20-25 Internal IPv4 Network"
 floating_ip_pool_name = None
 floating_ip = None
 image_name = "380b438b-f5d6-4afa-9d5f-a0ee972d60bc"
@@ -26,7 +26,7 @@ auth = loader.load_from_options(auth_url=env['OS_AUTH_URL'],
 
 sess = session.Session(auth=auth)
 nova = client.Client('2.1', session=sess)
-print "user authorization completed."
+print ("user authorization completed.")
 
 image = nova.glance.find_image(image_name)
 
@@ -48,16 +48,20 @@ else:
 
 secgroups = ['default']
 
-print "Creating instance ... "
-instance = nova.servers.create(name="prod_server_with_docker", image=image, flavor=flavor, key_name='sztoor',userdata=userdata, nics=nics,security_groups=secgroups)
+print ("Creating instance ... ")
+
+instance = nova.servers.create(name="prod_server_with_docker", image=image, flavor=flavor,userdata=userdata, nics=nics,security_groups=secgroups)
+
+# In case you want to login to the production server
+#instance = nova.servers.create(name="prod_server_with_docker", image=image, flavor=flavor, key_name='<YOUR-KEY>',userdata=userdata, nics=nics,security_groups=secgroups)
 inst_status = instance.status
-print "waiting for 10 seconds.. "
+print ("waiting for 10 seconds.. ")
 time.sleep(10)
 
 while inst_status == 'BUILD':
-    print "Instance: "+instance.name+" is in "+inst_status+" state, sleeping for 5 seconds more..."
+    print ("Instance: "+instance.name+" is in "+inst_status+" state, sleeping for 5 seconds more...")
     time.sleep(5)
     instance = nova.servers.get(instance.id)
     inst_status = instance.status
 
-print "Instance: "+ instance.name +" is in " + inst_status + " state"
+print ("Instance: "+ instance.name +" is in " + inst_status + " state")
