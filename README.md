@@ -21,10 +21,10 @@ Important:
 
 https://github.com/sztoor/model_serving.git
 
-The code for tasks is available in the "model-serving" directory. 
+The code for tasks is available in the "model_serving" directory. 
 
 ```
- - model-serving
+ - model_serving
    -- Single_server_without_docker
    -- Single_server_with_docker
    -- CI_CD
@@ -748,7 +748,7 @@ To 192.168.1.21:/home/appuser/my_project
 In case you want to learn more about Git Hooks, visit the following link: 
 https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
 
-3. Goto `/model-serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Open the training script `neural_net.py`, make changes in the model, run the script, move them in the git repository, commit changes and then push new model files in the running production pipeline. 
+3. Goto `/model_serving/ci_cd/development_server/` directory. The directory contains the `neural_net.py` python script. The script will train a model and generate new model files `model.h5` and  `model.json`. Open the training script `neural_net.py`, make changes in the model, run the script, move them in the git repository, commit changes and then push new model files in the running production pipeline. 
 
 - Run the script 
  
