@@ -603,12 +603,6 @@ ssh -i cluster-key appuser@<PRODUCTION-SERVER-IP>
 nano /home/appuser/.ssh/authorized_keys
 ``` 
 
-1. Login to the Production Server 
-
-```console
-ssh -i cluster-key appuser@<PRODUCTION-SERVER-IP> 
-```
-   
 - Create a directory (it will be jump directory)
    
 ```console
