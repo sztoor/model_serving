@@ -180,7 +180,7 @@ TERMINATE THE SERVER VM STARTED FOR TASK-1!
 
 In this task, we will repeat the same deployment process but with Docker containers. This time we will create a flexible containerized deployment environment where each container has a defined role. 
 
-1. Now goto `model_serving/single_server_with_docker/production_server/` directory on the client VM. The directory contains the code that will run on your production server. Following is the structure of the code: 
+1. Goto `model_serving/single_server_with_docker/production_server/` directory on the client VM. The directory contains the code that will run on your production server. Following is the structure of the code: 
 
 ``` 
  - Flask Application based frontend 
