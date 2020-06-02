@@ -442,7 +442,7 @@ The step will generate cluster ssh keys at the following location:
 
 2. Public key: `/home/ubuntu/cluster-keys/cluster-key.pub`
 
-3. Ne we start Production and Development servers. But first open `prod-cloud-cfg.txt` delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the `prod-cloud-cfg.txt` file.  
+3. Next, we will start the Production and Development servers. But first, goto the `model_serving/openstack-client/single_node_with_docker_ansible_client`, open `prod-cloud-cfg.txt` delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the `prod-cloud-cfg.txt` file.  
 
 Repeat same step 3 with the `dev-cloud-cfg.txt`. Delete the old key from the section `ssh_authorized_keys:` and copy the complete contents of `/home/ubuntu/cluster-keys/cluster-key.pub` in the `prod-cloud-cfg.txt` file.
 
