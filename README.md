@@ -109,7 +109,7 @@ Follow the instructions available on the following links:
 
 - Goto https://docs.openstack.org/install-guide/environment-packages-ubuntu.html , http://docs.openstack.org/cli-reference/common/cli_install_openstack_command_line_clients.html and download the client tools and API for OpenStack.
 
-- Download the Runtime Configuration (RC) file from the SSC site (Top left frame, Project->API Access->Download OpenStack RC File).
+- Download the Runtime Configuration (RC) file (version 3) from the SSC site (Top left frame, Project->API Access->Download OpenStack RC File).
 
 - Set API access password. Goto https://cloud.snic.se/, Left frame, under _Services_ "Set your API password".  
 
@@ -148,6 +148,8 @@ apt install python3-keystoneclient
 ```
 
 ------------------
+
+NOTE: You need to setup variable values in the start_instance.py script.
 
 4. Once you have setup the environment, run the following command. 
 
