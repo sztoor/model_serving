@@ -149,6 +149,8 @@ apt install python3-keystoneclient
 
 ------------------
 
+NOTE: You need to setup variable values in the start_instance.py script.
+
 4. Once you have setup the environment, run the following command. 
 
 ```console 
