@@ -367,7 +367,7 @@ ssh -i <PRIVATE KEY> ubuntu@<PRODUCTION-SERVER-IP>
 
 Open files and try to understand the application's structure. 
 
-3. Goto the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. This is the code that we will be used to contextualize our production server. The code is based on the following files:
+3. Goto the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. The files in the directory will be used to contextualize the production and deployment servers. 
 
 ```console
 - CloudInit files 
