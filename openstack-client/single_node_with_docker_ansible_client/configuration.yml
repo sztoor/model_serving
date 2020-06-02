@@ -22,8 +22,8 @@
    - name: Download git repository
      become: true
      git:
-      repo: 'https://github.com/SNICScienceCloud/technical-training.git'
-      dest: /technical-training 
+      repo: 'https://github.com/sztoor/model_serving.git'
+      dest: /model_serving 
       
    - name: Change ownership of a directory
      become: true
@@ -82,13 +82,13 @@
      become: true
      shell: docker build .
      args: 
-      chdir: /technical-training/model-serving/ci_cd/production_server
+      chdir: /model_serving/ci_cd/production_server
 
    - name: Running containers
      become: true
      shell: docker-compose up -d 
      args: 
-      chdir: /technical-training/model-serving/ci_cd/production_server 
+      chdir: /model_serving/ci_cd/production_server 
 
 - hosts: dev_server
   
