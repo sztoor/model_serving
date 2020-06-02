@@ -220,7 +220,8 @@ python3 start_instance.py
 
 The command will start a new server and initiate the contextualization process. It will take approximately 10 to 15 minutes. The progress can be seen on the cloud dashboard. Once the process finish, attach a floating IP to your production server and access the webpage from your client machine. 
 
-Welcome page `http://<PRODUCTION-SERVER-IP>:5100`. Predictions page `http://<PRODUCTION-SERVER-IP>:5100/predictions`
+- Welcome page `http://<PRODUCTION-SERVER-IP>:5100` 
+- Predictions page `http://<PRODUCTION-SERVER-IP>:5100/predictions`
 
 4. The next step is to test the horizontal scalability of the setup. 
 
@@ -239,7 +240,7 @@ sudo bash
 - Check the cluster status:
 
 ```console 
-cd model_serving/single_server_with_docker/production_server
+cd /model_serving/single_server_with_docker/production_server
 ```
 
 ```console
