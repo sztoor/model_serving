@@ -78,7 +78,7 @@
       dest: /usr/local/bin/docker-compose
       mode: +x  
 
-   - name: Building container
+   - name: Building containers
      become: true
      shell: docker build .
      args: 
