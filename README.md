@@ -482,13 +482,13 @@ apt update
 ```console
 apt install ansible
 ```
-We have ansible packages install. Now we will enter these IP addresses in the Ansible hosts file.
+Now we have ansible packages installed. Next step is to enter these IP addresses in the Ansible hosts file.
 
 i. prod_server_with_docker_6225  -> 192.168.1.19
 
 ii. dev_server_6225 -> 192.168.1.17
 
-6. Open the Ansible inventory file and add the IP address in that file. For this step you need to swtich to _root_ user.
+6. Open the Ansible inventory file and add the IP addresses in that file. For this step you need to swtich to _root_ user.
 
 ```console
 sudo bash
