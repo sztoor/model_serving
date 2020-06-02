@@ -68,7 +68,7 @@ ssh -i PATH-TO-PRIVATE-KEY ubuntu@<CLIENT-VM-FLOATING-IP>
 git clone https://github.com/sztoor/model_serving.git
 ```
 
-2. Goto the `model-serving/single_server_without_docker/production_server/` directory. This directory contains the code that will run on the  production server VM.
+2. Goto the `model_serving/single_server_without_docker/production_server/` directory. This directory contains the code that will run on the  production server VM.
  
 Following is the structure of the code: 
 
@@ -88,7 +88,7 @@ Following is the structure of the code:
 
 Open files and try to understand the application's structure. 
 
-3. Goto the `model-serving/openstack-client/single_node_without_docker_client/` directory. This is the code that we will use to contextualize our production server. The code is based on the following two files:
+3. Goto the `model_serving/openstack-client/single_node_without_docker_client/` directory. This is the code that we will use to contextualize our production server. The code is based on the following two files:
 
 ```console
 - CloudInit configuration file  
@@ -178,7 +178,7 @@ TERMINATE THE SERVER VM STARTED FOR TASK-1!
 
 In this task, we will repeat the same deployment process but with Docker containers. This time we will create a flexible containerized deployment environment where each container has a defined role. 
 
-1. Now goto `model-serving/single_server_with_docker/production_server/` directory on the client VM. The directory contains the code that will run on your production server. Following is the structure of the code: 
+1. Now goto `model_serving/single_server_with_docker/production_server/` directory on the client VM. The directory contains the code that will run on your production server. Following is the structure of the code: 
 
 ``` 
  - Flask Application based frontend 
@@ -199,7 +199,7 @@ In this task, we will repeat the same deployment process but with Docker contain
 
 Open files and try to understand the application's structure. 
 
-2. Goto the `model-serving/openstack-client/single_node_with_docker_client/` directory. The directory contains the code that we will use to contextualize the production server. The code is based on the following two files:
+2. Goto the `model_serving/openstack-client/single_node_with_docker_client/` directory. The directory contains the code that we will use to contextualize the production server. The code is based on the following two files:
 
 ```console
 - CloudInit configuration file  
@@ -237,7 +237,7 @@ sudo bash
 - Check the cluster status:
 
 ```console 
-cd model-serving/single_server_with_docker/production_server
+cd model_serving/single_server_with_docker/production_server
 ```
 
 ```console
@@ -338,7 +338,7 @@ For this task we need a setup based on following three VMs:
 ssh -i <PRIVATE KEY> ubuntu@<PRODUCTION-SERVER-IP>
 ```
 
-2. Goto `model-serving/ci_cd` directory. This directory contains the following two sub-directories 
+2. Goto `model_serving/ci_cd` directory. This directory contains the following two sub-directories 
 
 ```
 /production_server 
@@ -364,7 +364,7 @@ ssh -i <PRIVATE KEY> ubuntu@<PRODUCTION-SERVER-IP>
 
 Open files and try to understand the application's structure. 
 
-3. Goto the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. This is the code that we will be used to contextualize our production server. The code is based on the following files:
+3. Goto the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. This is the code that we will be used to contextualize our production server. The code is based on the following files:
 
 ```console
 - CloudInit files 
@@ -534,7 +534,7 @@ If the login successfull, exit from the development server.
 
 - For this step you need to login as _ubuntu_ user on the client VM. 
 
-Now we will run the Ansible script available in the `model-serving/openstack-client/single_node_with_docker_ansible_client` directory. 
+Now we will run the Ansible script available in the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. 
 
 ```console
 export ANSIBLE_HOST_KEY_CHECKING=False
@@ -651,7 +651,7 @@ do
     if [[ $ref =~ .*/master$ ]];
     then
         echo "Master ref received.  Deploying master branch to production..."
-        git --work-tree=/model-serving/ci_cd/production_server --git-dir=/home/appuser/my_project checkout -f
+        git --work-tree=/model_serving/ci_cd/production_server --git-dir=/home/appuser/my_project checkout -f
     else
         echo "Ref $ref successfully received.  Doing nothing: only the master branch may be deployed on this server."
     fi
@@ -706,7 +706,7 @@ Output
  Initialized empty Git repository in `/home/appuser/project/.git/`
 ```
 
-- Add files `model.h5` and  `model.json` in `/home/appuser/project/` directory. The files are available in `/model-serving/ci_cd/development_server/` directory. 
+- Add files `model.h5` and  `model.json` in `/home/appuser/project/` directory. The files are available in `/model_serving/ci_cd/development_server/` directory. 
 
 - Goto the `/home/appuser/project` directory
     
@@ -755,10 +755,10 @@ https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automat
  ```console
    python3 neural_net.py 
    ```
-- Copy model files (`model.h5` and  `model.json`) from the development directory `model-serving/ci_cd/development_server/` to the git repository `/home/appuser/project` on the development server.    
+- Copy model files (`model.h5` and  `model.json`) from the development directory `model_serving/ci_cd/development_server/` to the git repository `/home/appuser/project` on the development server.    
    
 ```console
-   cp /model-serving/ci_cd/development_server/model*  /home/appuser/project/.
+   cp /model_serving/ci_cd/development_server/model*  /home/appuser/project/.
    ```   
 - Add to the git repository. 
  
