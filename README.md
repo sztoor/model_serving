@@ -9,15 +9,15 @@ Important:
 
 0. _It is expected that students have finished the prelab of the distributed e-infrastructures part._
 
-1. _NOTE: Please terminate VMs once you finish the task._ 
+_NOTE: Please terminate VMs once you finish the task._ 
 
-2. The tasks and the configurations are designed for the Ubuntu 18.04 with medium VM flavour.  
+1. The tasks and the configurations are designed for the Ubuntu 18.04 with medium VM flavour.  
 
-3. We will use SNIC Science Cloud (SSC) for all the tasks. In case you want to learn more about SSC visit the website  http://cloud.snic.se
+2. We will use SNIC Science Cloud (SSC) for all the tasks. In case you want to learn more about SSC visit the website  http://cloud.snic.se
 
-4. We recommend you to create a VM in SSC and execute all the tasks on that virtual machine. You can run the tasks on your laptops but it may break your local working environment.
+3. We recommend you to create a VM in SSC and execute all the tasks on that virtual machine. You can run the tasks on your laptops but it may break your local working environment.
 
-3. For all the tasks clone the repository:
+4. For all the tasks clone the repository:
 
 https://github.com/sztoor/model_serving.git
 
