@@ -636,7 +636,7 @@ pwd
 git init --bare
 ```
    
-Initialized empty Git repository in `/home/appuser/my_project/`
+The command will initialize empty Git repository in `/home/appuser/my_project/`
 
 - Create a git hook `post-receive`
  
