@@ -410,6 +410,8 @@ mkdir -p /home/ubuntu/cluster-keys
 ```console
 ssh-keygen -t rsa
 ```
+Set the file path `/home/ubuntu/cluster-keys/cluster-key`
+Do not set the password, simply press _Enter_ twice.  
 
 Output
 
@@ -582,6 +584,8 @@ In this task, we will build a reliable execution pipeline using Git Hooks. The p
   ```console
   ssh-keygen
   ```
+Do not change the default  `/home/appuser/.ssh/id_rsa` path of the file.   
+Do not set the password, simply press _Enter_ twice.
 
 _NOTE: This step will create two files, private key `/home/appuser/.ssh/id_rsa` and public key `/home/appuser/.ssh/id_rsa.pub`._
 
