@@ -17,6 +17,6 @@ runcmd:
  - pip3 install amqp
  - pip3 install flask
 
- - git clone https://github.com/SNICScienceCloud/technical-training.git 
- - celery -A workerA worker --detach --workdir=/technical-training/model-serving/single_server_without_docker/production_server --loglevel=debug --concurrency=1 -n wkr1@backend
- - python3 /technical-training/model-serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100 & 
+ - git clone https://github.com/sztoor/model_serving.git 
+ - celery -A workerA worker --detach --workdir=/model_serving/single_server_without_docker/production_server --loglevel=debug --concurrency=1 -n wkr1@backend
+ - python3 /model_serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100 & 
