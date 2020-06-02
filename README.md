@@ -482,13 +482,13 @@ apt update
 ```console
 apt install ansible
 ```
-We have ansible packages install. Now we will enter these IP addresses in the Ansible hosts file.
+Now we have ansible packages installed. Next step is to enter these IP addresses in the Ansible hosts file.
 
 i. prod_server_with_docker_6225  -> 192.168.1.19
 
 ii. dev_server_6225 -> 192.168.1.17
 
-6. Open the Ansible inventory file and add the IP address in that file. For this step you need to swtich to _root_ user.
+6. Open the Ansible inventory file and add the IP addresses in that file. For this step you need to swtich to _root_ user.
 
 ```console
 sudo bash
@@ -535,7 +535,7 @@ ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<DEVELOPMENT-SERVER-IP>
 ```
 If the login successfull, exit from the development server. 
 
-- For this step you need to login as _ubuntu_ user on the client VM. 
+- For this step, switch to _ubuntu_ user on the client VM. 
 
 Now we will run the Ansible script available in the `model_serving/openstack-client/single_node_with_docker_ansible_client` directory. 
 
@@ -547,9 +547,9 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 ansible-playbook configuration.yml --private-key=/home/ubuntu/cluster-keys/cluster-key
 ```
 
-The process will take 10 to 15 minutes to complete. Once the process successfully completed you have both production and development servers ready. 
+The process will take 10 to 15 minutes to complete.  
 
-Attach floating IP address to the production server and access the same web page as we have in previous tasks.  
+Attach floating IP address to the production server and access the same predictions webpage as we did in previous tasks.  
 
 ## Questions
 
