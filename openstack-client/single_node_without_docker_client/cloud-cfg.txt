@@ -16,6 +16,7 @@ runcmd:
  - pip3 install tensorflow
  - pip3 install amqp
  - pip3 install flask
+ - pip3 install future
 
  - git clone https://github.com/sztoor/model_serving.git 
  - celery -A workerA worker --detach --workdir=/model_serving/single_server_without_docker/production_server --loglevel=debug --concurrency=1 -n wkr1@backend
