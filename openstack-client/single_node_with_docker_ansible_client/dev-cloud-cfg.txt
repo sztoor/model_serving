@@ -7,7 +7,7 @@ users:
    home: /home/appuser
    shell: /bin/bash
    ssh_authorized_keys:
-     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgwigMbSkYDN/ULsoym2Dlk66FuXrRXzpAUAMA07afih5J1QgRu1cyP74R2Qf3r3+SlKSDWNfC8kFM/d5j53V4RvOirGABV5LALvugAzMD7XpPKTBHP1+3nnTZXfYjl3ktUxQleTb/DSjG94Q+b1/FYOO8BRGtCoI2+gCW9cC1F87sT2IRmk4fz/jXMYsbyw/GAXx9dTcIUYV2nof5Ew0hRVxoXSHMfLEdOwYNtJEtPY0QqBbatgeAQ5v2rpNSw3Qz7ojhw1/0VZZr5m3dqWuTaEj2bl/PaXjePAMssVCECOqghtCVc7aG+fycDhLQZosY+9Rh/+6o7qvBJ8es9ouf ubuntu@salman-toor
+     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDw3qnR1irPiv3fts6L8Q8KRzeCKHtISbJvkjR/0BqrMUEj0VgMDOwFeWEoNepjScvvTEXJL/xUEQqUsnOcRicaDOxcKgp12ZAmL9g5ifSYrwM+3q7L6WcbXDzw8Jr+F2UPpnVt7F3h/xfi45DmoBDr7OCe4DwJNRNKroauQGnjkf7Afa1Gup4yi7QT7wUIc8Upfp0MfimxS4QIkEgAD+SNl2i7zBMY1QnLD7qbNSed6onMx3+5R3UQrhQ9UbWcl4/h7B86RGE5cryzR6pBSkGswA+inF26z0G0uEnkOHTx2L3nAT9knCnyTBLc4UpSnPzu9hPhSzewOEYltlZJRDYJ ubuntu@salman-toor-client
 
 byobu_default: system
 

@@ -1,5 +1,5 @@
 # http://docs.openstack.org/developer/python-novaclient/ref/v2/servers.html
-import time, os, sys
+import time, os, sys,  random
 import inspect
 from os import environ as env
 
@@ -13,6 +13,8 @@ private_net = "SNIC 2020/20-25 Internal IPv4 Network"
 floating_ip_pool_name = None
 floating_ip = None
 image_name = "380b438b-f5d6-4afa-9d5f-a0ee972d60bc"
+
+identifier = random.randint(1000,9999)
 
 loader = loading.get_plugin_loader('password')
 
@@ -49,7 +51,7 @@ else:
 secgroups = ['default']
 
 print ("Creating instance ... ")
-instance = nova.servers.create(name="prod_server_without_docker", image=image, flavor=flavor,userdata=userdata, nics=nics,security_groups=secgroups)
+instance = nova.servers.create(name="prod_server_without_docker_"+str(identifier), image=image, flavor=flavor,userdata=userdata, nics=nics,security_groups=secgroups)
 
 # incase you want to login to the production server 
 #instance = nova.servers.create(name="prod_server_without_docker", image=image, flavor=flavor, key_name='access-key-name',userdata=userdata, nics=nics,security_groups=secgroups)

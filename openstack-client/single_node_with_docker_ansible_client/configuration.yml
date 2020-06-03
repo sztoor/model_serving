@@ -103,4 +103,4 @@
    - name: Install ML packages
      become: true
      pip: 
-      name: keras, tensorflow, numpy
+      name: keras, tensorflow, numpy, future
