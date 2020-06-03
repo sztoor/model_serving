@@ -704,12 +704,12 @@ git init
 Output
 
 ```console
- Initialized empty Git repository in `/home/appuser/project/.git/`
+ Initialized empty Git repository in `/home/appuser/my_project/.git/`
 ```
 
-- Add files `model.h5` and  `model.json` in `/home/appuser/project/` directory. The files are available in `/model_serving/ci_cd/development_server/` directory. 
+- Add files `model.h5` and  `model.json` in `/home/appuser/my_project/` directory. The files are available in `/model_serving/ci_cd/development_server/` directory. 
 
-- Goto the `/home/appuser/project` directory
+- Goto the `/home/appuser/my_project` directory
     
 - Add files for the commit 
    
