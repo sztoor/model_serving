@@ -530,12 +530,12 @@ First switch back to user _ubuntu_
 ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<PRODUCTION-SERVER-IP>
 ```
 
-If the login is successfull, exit from the production server and repeat this step with development server 
+If the login is successful, exit from the production server and repeat this step with development server 
 
 ```console
 ssh -i /home/ubuntu/cluster-keys/cluster-key appuser@<DEVELOPMENT-SERVER-IP>
 ```
-If the login successfull, exit from the development server. 
+If the login is successful, exit from the development server. 
 
 - For this step, switch to _ubuntu_ user on the client VM. 
 
