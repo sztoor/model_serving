@@ -652,7 +652,7 @@ do
     if [[ $ref =~ .*/master$ ]];
     then
         echo "Master ref received.  Deploying master branch to production..."
-        git --work-tree=/model_serving/ci_cd/production_server --git-dir=/home/appuser/my_project checkout -f
+        sudo git --work-tree=/model_serving/ci_cd/production_server --git-dir=/home/appuser/my_project checkout -f
     else
         echo "Ref $ref successfully received.  Doing nothing: only the master branch may be deployed on this server."
     fi
