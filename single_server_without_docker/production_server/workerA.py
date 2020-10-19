@@ -1,6 +1,7 @@
 from celery import Celery
 
 from numpy import loadtxt
+import numpy as np
 from keras.models import model_from_json
 from keras.models import Sequential
 
@@ -13,6 +14,7 @@ def load_data():
     X = dataset[:,0:8]
     y = dataset[:,8]
     y = list(map(int, y))
+    y = np.asarray(y, dtype=np.uint8)
     return X, y
 
 def load_model():
@@ -42,7 +44,7 @@ def get_predictions():
     X, y = load_data()
     loaded_model = load_model()
     predictions = loaded_model.predict_classes(X)
-    results['y'] = y
+    results['y'] = y.tolist()
     results['predicted'] =[]
     #print ('results[y]:', results['y'])
     for i in range(len(results['y'])):
@@ -60,4 +62,3 @@ def get_accuracy():
     score = loaded_model.evaluate(X, y, verbose=0)
     #print("%s: %.2f%%" % (loaded_model.metrics_names[1], score[1]*100))
     return score[1]*100
-
