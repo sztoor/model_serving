@@ -29,7 +29,7 @@ def load_model():
     return loaded_model
 
 # Celery configuration
-CELERY_BROKER_URL = 'amqp://rabbitmq:rabbitmq@rabbit:5672/'
+CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 CELERY_RESULT_BACKEND = 'rpc://'
 # Initialize Celery
 celery = Celery('workerA', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
