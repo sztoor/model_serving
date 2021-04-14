@@ -8,11 +8,11 @@ import keystoneclient.v3.client as ksclient
 from keystoneauth1 import loading
 from keystoneauth1 import session
 
-flavor = "ssc.medium" 
-private_net = "SNIC 2020/20-25 Internal IPv4 Network"
+flavor = "ssc" 
+private_net = "SNIC Network"
 floating_ip_pool_name = None
 floating_ip = None
-image_name = "380b438b-f5d6-4afa-9d5f-a0ee972d60bc"
+image_name = "image-id"
 
 identifier = random.randint(1000,9999)
 
