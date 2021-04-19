@@ -19,5 +19,5 @@ runcmd:
  - pip3 install future
 
  - git clone https://github.com/sztoor/model_serving.git 
- - celery -A workerA worker --detach --workdir=/model_serving/single_server_without_docker/production_server --loglevel=debug --concurrency=1 -n wkr1@backend
+ - celery --workdir=/model_serving/single_server_without_docker/production_server -A workerA worker --detach --loglevel=debug --concurrency=1 -n wkr1@backend
  - python3 /model_serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100 & 
