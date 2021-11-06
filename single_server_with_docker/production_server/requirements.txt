@@ -2,5 +2,5 @@ Flask
 amqp
 celery
 keras
-tensorflow
+tensorflow==2.5.0
 future
