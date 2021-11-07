@@ -60,7 +60,7 @@
      become: true
 
    - name: Add Docker repository 
-     command: add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+     command: add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
      become: true
 
    - name: apt update
