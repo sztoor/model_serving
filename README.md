@@ -119,7 +119,7 @@ Follow the instructions available on the following links:
 export OS_USER_DOMAIN_NAME="snic"
 export OS_IDENTITY_API_VERSION="3"
 export OS_PROJECT_DOMAIN_NAME="snic"
-export OS_PROJECT_NAME="SNIC 2020/20-25"
+export OS_PROJECT_NAME="SNIC 2021/18-43"
 ```
 
 - Set the environment variables by sourcing the RC-file:
