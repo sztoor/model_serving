@@ -11,7 +11,7 @@ Important:
 
 1. Please terminate VMs once you finish the task. 
 
-2. The tasks and the configurations are designed for the Ubuntu 18.04 with medium VM flavour.  
+2. The tasks and the configurations are designed for the Ubuntu 20.04 with small or medium VM flavour.  
 
 3. We will use SNIC Science Cloud (SSC) for all the tasks. In case you want to learn more about SSC visit the website  http://cloud.snic.se
 
