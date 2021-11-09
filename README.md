@@ -520,7 +520,7 @@ dev_server ansible_connection=ssh ansible_user=appuser
 If you need to learn more about Ansible, here are some useful links: 
 
 Easy installation instructions
-https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-20-04
 
 - Just to confirm the access premission are correctly set, access production and development server from the client VM. 
 
