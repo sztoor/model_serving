@@ -11,9 +11,9 @@
      with_items: "{{groups['all']}}"
      become: true
      
-   - name: Set hostname
-     hostname: name="{{inventory_hostname}}"
-     become: true
+   #- name: Set hostname
+   #  hostname: name="{{inventory_hostname}}"
+   #  become: true
 
    - name: apt update
      apt: update_cache=yes upgrade=dist
