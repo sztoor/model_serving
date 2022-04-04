@@ -2,8 +2,8 @@ from celery import Celery
 
 from numpy import loadtxt
 import numpy as np
-from keras.models import model_from_json
-from keras.models import Sequential
+from tensorflow.keras.models import model_from_json
+from tensorflow.keras.models import Sequential
 
 model_json_file = './model.json'
 model_weights_file = './model.h5'
