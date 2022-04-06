@@ -1,8 +1,8 @@
 # first neural network with keras tutorial
 from numpy import loadtxt
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.models import model_from_json
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import model_from_json
 
 # load the dataset
 dataset = loadtxt('pima-indians-diabetes.csv', delimiter=',')
