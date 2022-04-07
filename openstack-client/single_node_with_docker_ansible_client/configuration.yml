@@ -34,7 +34,7 @@
       owner: appuser
       group: appuser
 
-- hosts: prod_server
+- hosts: prodserver
  
   vars_files:
    - setup_var.yml  
@@ -90,7 +90,7 @@
      args: 
       chdir: /model_serving/ci_cd/production_server 
 
-- hosts: dev_server
+- hosts: devserver
   
   vars_files:
    - setup_var.yml
