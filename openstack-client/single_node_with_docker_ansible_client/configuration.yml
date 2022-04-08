@@ -66,6 +66,24 @@
    - name: apt update
      apt: update_cache=yes upgrade=dist
      become: true
+  
+   # Workaround pip issue with MTU mismatch, see: https://github.com/docker/docker.github.io/pull/9249/files
+   # MTU for SNIC is 1450, Docker default is 1500. Override so that Docker matches the host.
+   # We create the config file before installing, to avoid any need to restart the docker daemon.
+   - name: Create Ansible docker config directory.
+     become: true
+     file:
+       path: "/etc/docker"
+       state: directory
+
+   - name: Create Ansible docker file to configure Docker MTU to match SNIC for pip issue
+     become: true
+     copy:
+       dest: "/etc/docker/daemon.json"
+       content: |
+        {
+          "mtu": 1450
+        }
 
    - name: Install Docker  
      apt: pkg=docker-ce state=present update_cache=true allow_unauthenticated=yes
