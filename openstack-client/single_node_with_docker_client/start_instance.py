@@ -50,7 +50,7 @@ else:
 
 secgroups = ['default']
 
-print ("Creating instance ... ")
+print ("Creating instance .. ")
 
 #instance = nova.servers.create(name="prod_server_with_docker", image=image, flavor=flavor,userdata=userdata, nics=nics,security_groups=secgroups)
 
