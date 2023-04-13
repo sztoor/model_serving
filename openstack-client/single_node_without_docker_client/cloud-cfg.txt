@@ -12,7 +12,7 @@ byobu_default: system
 
 runcmd:
  - pip3 install celery
- - pip3 install tensorflow==2.5.3
+ - pip3 install tensorflow==2.10.0
  - pip3 install amqp
  - pip3 install flask
  - pip3 install future
