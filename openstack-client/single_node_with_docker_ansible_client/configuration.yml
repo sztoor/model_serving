@@ -89,22 +89,9 @@
      apt: pkg=docker-ce state=present update_cache=true allow_unauthenticated=yes
      become: true
 
-   - name: Download docker-compose 
-     become: yes
-     get_url:        
-      url: "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-{{ansible_system}}-{{ansible_architecture}}"
-      dest: /usr/local/bin/docker-compose
-      mode: +x  
-
-   - name: Building containers
-     become: true
-     shell: docker build .
-     args: 
-      chdir: /model_serving/ci_cd/production_server
-
    - name: Running containers
      become: true
-     shell: docker-compose up -d 
+     shell: docker compose up -d 
      args: 
       chdir: /model_serving/ci_cd/production_server 
 
@@ -121,4 +108,4 @@
    - name: Install ML packages
      become: true
      pip: 
-      name: tensorflow==2.5.3, keras==2.4.1, numpy, future
+      name: tensorflow==2.10.0, keras==2.10.0, numpy, future
