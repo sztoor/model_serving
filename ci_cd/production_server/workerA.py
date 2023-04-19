@@ -3,7 +3,7 @@ from celery import Celery
 from numpy import loadtxt
 import numpy as np
 from tensorflow.keras.models import model_from_json
-from tensorflow.keras.models import Sequential
+
 
 model_json_file = './model.json'
 model_weights_file = './model.h5'
@@ -43,13 +43,13 @@ def get_predictions():
     results ={}
     X, y = load_data()
     loaded_model = load_model()
-    predictions = loaded_model.predict_classes(X)
+    predictions = np.round(loaded_model.predict(X)).flatten().astype(np.int32)
     results['y'] = y.tolist()
-    results['predicted'] =[]
+    results['predicted'] = predictions.tolist()
     #print ('results[y]:', results['y'])
-    for i in range(len(results['y'])):
+    # for i in range(len(results['y'])):
         #print('%s => %d (expected %d)' % (X[i].tolist(), predictions[i], y[i]))
-        results['predicted'].append(predictions[i].tolist()[0])
+        # results['predicted'].append(predictions[i].tolist()[0])
     #print ('results:', results)
     return results
 
