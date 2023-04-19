@@ -43,7 +43,7 @@ def get_predictions():
     results ={}
     X, y = load_data()
     loaded_model = load_model()
-    predictions = np.round(loaded_model.predict(X))
+    predictions = np.round(loaded_model.predict(X)).flatten().astype(np.int32)
     results['y'] = y.tolist()
     results['predicted'] = predictions.tolist()
     #print ('results[y]:', results['y'])
