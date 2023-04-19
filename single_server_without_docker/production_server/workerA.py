@@ -44,7 +44,7 @@ def get_predictions():
     X, y = load_data()
     loaded_model = load_model()
     # predictions = loaded_model.predict_classes(X)
-    predictions = np.argmax(loaded_model.predict(X))
+    predictions = np.argmax(loaded_model.predict(X), axis=0)
     results['y'] = y.tolist()
     results['predicted'] = predictions.tolist()
     #print ('results[y]:', results['y'])
