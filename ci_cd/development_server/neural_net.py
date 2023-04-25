@@ -1,5 +1,6 @@
 # first neural network with keras tutorial
 from numpy import loadtxt
+import numpy as np
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import model_from_json
