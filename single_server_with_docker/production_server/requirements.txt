@@ -1,4 +1,4 @@
-Flask
+Flask==2.3.1
 amqp
 celery
 tensorflow==2.10.0
