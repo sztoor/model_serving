@@ -14,7 +14,7 @@ runcmd:
  - pip3 install celery
  - pip3 install tensorflow==2.10.0
  - pip3 install amqp
- - pip3 install flask
+ - pip3 install flask==2.3.1
  - pip3 install future
  - pip3 install numpy
 
