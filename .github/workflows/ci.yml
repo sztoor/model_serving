@@ -20,6 +20,6 @@ jobs:
         git clone https://github.com/sztoor/model_serving.git
         dir = "$(pwd)/model_serving/single_server_without_docker/production_server/"
 
-        echo "$dir"
+        echo "working directory: $dir"
         celery --workdir= "$dir" -A workerA worker --detach --loglevel=debug --concurrency=1 -n wkr1@backend
         python3 "$dir"/app.py --host=0.0.0.0 --port=5100
