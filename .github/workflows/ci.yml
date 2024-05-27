@@ -17,7 +17,7 @@ jobs:
         sudo apt upgrade -y 
         sudo apt install -y python3-pip python3-dev build-essential rabbitmq-server
         sudo pip3 install celery tensorflow==2.10.0 amqp flask==2.3.1 future numpy
-        sudo git clone https://github.com/sztoor/model_serving.git /model_serving
+        git clone https://github.com/sztoor/model_serving.git /tmp/model_serving
     
-        sudo celery --workdir=/model_serving/single_server_without_docker/production_server/ -A workerA worker --detach --loglevel=debug --concurrency=1 -n wkr1@backend
-        sudo python3 /model_serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100
+        timeout 10 celery --workdir=/tmp/model_serving/single_server_without_docker/production_server/ -A workerA worker --detach --loglevel=debug --concurrency=1 -n wkr1@backend
+        timeout 5 python3 /tmp/model_serving/single_server_without_docker/production_server/app.py --host=0.0.0.0 --port=5100
