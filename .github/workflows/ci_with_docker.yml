@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  schedule:
+    - cron: "12 3 * * 5" # every friday at 03:14      
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Testing model serving code for assignment-2 of DE-II course.
+      run: |
+        sudo apt update
+        sudo apt upgrade -y 
+        sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+        echo "adding docker repo"
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        apt-get update -y
+        apt-get install -y docker-ce
+        
+        git clone https://github.com/sztoor/model_serving.git /tmp/model_serving
+        timeout --preserve-status 100 docker compose -f /tmp/model_serving/single_server_with_docker/production_server/docker-compose.yml up -d
+
