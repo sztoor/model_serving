@@ -14,7 +14,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         sudo apt update
-        sudo apt -Y upgrade 
+        sudo apt upgrade -Y 
         sudo apt install python3-pip python3-dev build-essential rabbitmq-server
         sudo pip3 install celery tensorflow==2.10.0 amqp flask==2.3.1 future numpy
         git clone https://github.com/sztoor/model_serving.git
