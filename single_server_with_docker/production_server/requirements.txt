@@ -3,5 +3,5 @@ amqp
 celery
 tensorflow==2.10.0
 keras==2.10.0
-numpy
+numpy<2.0
 future
