@@ -11,7 +11,7 @@ packages:
 byobu_default: system 
 
 runcmd:
- - pip3 install "celery" "tensorflow==2.10.0" "amqp" "flask==2.3.1" "future" "numpy<2.0"
+ - pip3 install "celery" "tensorflow" "amqp" "flask==2.3.1" "future" "numpy"
 
  - git clone https://github.com/sztoor/model_serving.git 
  - celery --workdir=/model_serving/single_server_without_docker/production_server -A workerA worker --detach --loglevel=debug --concurrency=1 -n wkr1@backend
