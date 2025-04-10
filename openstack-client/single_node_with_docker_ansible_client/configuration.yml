@@ -108,4 +108,4 @@
    - name: Install ML packages
      become: true
      pip: 
-      name: tensorflow==2.10.0, keras==2.10.0, numpy, future
+      name: tensorflow==2.10.0, keras==2.10.0, numpy<2.0, future
