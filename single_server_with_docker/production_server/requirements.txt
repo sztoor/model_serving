@@ -1,7 +1,7 @@
 Flask==2.3.1
 amqp
 celery
-tensorflow==2.10.0
+tensorflow==2.11.1
 keras==2.10.0
 numpy<2.0
 future
