@@ -11,7 +11,7 @@ services:
       - rabbit
   rabbit:
     hostname: rabbit
-    image: rabbitmq:management
+    image: rabbitmq:3.11-management
     environment:
       - RABBITMQ_DEFAULT_USER=rabbitmq
       - RABBITMQ_DEFAULT_PASS=rabbitmq
